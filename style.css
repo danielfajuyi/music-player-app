@@ -1,0 +1,208 @@
+body {
+    font-family: Helvetica, sans-serif;
+    background: var(--background-color);
+}
+
+:root {
+    --background-color: #26282c;
+    --player-color: #eee;
+    --cover-color: #171a1d;
+    --box-shadow1: #151618;
+    --box-shadow2: #33353b;
+    --span-color: #8c8f90;
+    --slider-background: #1f1f1f;
+    --slider-box-shadow1: #000;
+    --slider-box-shadow2: #909090;
+    --slider-thumb-color: #111;
+    --slider-thumb-before: #333;
+    --slider-range-thumb_hover: #e75709;
+    --progress-background: linear-gradient(90deg, #c72611, #e75709);
+    --btn-background: linear-gradient(-60deg, #1e1f23, #2e3137);
+    --btn-background_hover: linear-gradient(60deg, #1e1f23, #2e3137);
+    --btn-background-main: linear-gradient(-60deg, #c72611, #e75709);
+    --btn-background-main_hover: linear-gradient(60deg, #c72611, #e75709);
+    --btn-border: #1c2023;
+    --btn-main-span : #fff;
+
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.player {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5em;
+    color: var(--player-color);
+}
+
+.cover {
+    width: 18em;
+    border: 0.8em var(--cover-color) solid;
+    border-radius: 50%;
+    box-shadow: 0.8em 0.8em 1.8em var(--box-shadow1), 
+    -0.8em -0.8em 1em var(--box-shadow2);
+}
+
+/* Text */
+
+h1 {
+    margin: 1em 0 0.3em 0;
+}
+
+span, small {
+    color: var(--span-color);
+}
+
+.timeline-slider {
+    margin: 2em auto;
+    max-width: 30em;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-slider {
+    margin-top: 0.4em;
+    position: relative;
+    display: flex;
+    user-select: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.4em;
+    outline: none;
+    border-radius: 3px;
+    background: var(--slider-background);
+    box-shadow:
+     inset 3px 3px 6px var(--slider-box-shadow1), 
+            1px 1px 1px var(--slider-box-shadow2)
+        ;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.7em;
+    height: 1.7em;
+    z-index: 3;
+    position: relative;
+}
+
+.timeline-slider .slider-thumb {
+    position: absolute;
+    width: 1.7em;
+    height: 1.7em;
+    background: var(--slider-thumb-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.timeline-slider .slider-thumb::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.7em;
+    height: 0.7em;
+    background: var(--slider-thumb-before);
+    border-radius: inherit;
+    transition: 0.3s;
+}
+
+.timeline-slider 
+.range-slider:hover
+.slider-thumb::before {
+    background: var(--slider-range-thumb_hover);
+}
+
+.progress {
+    width: 50%;
+    height: 0.4em;
+    border-radius: 3px;
+    background: var(--progress-background);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    pointer-events: none;
+}
+
+.volume-slider {
+    max-width: 16em;
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-slider .slider::-webkit-slider-thumb {
+    width: 0;
+}
+
+.volume-icon {
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+
+.volume-icon span {
+    font-size: 2em;
+    padding-top: 0.2em;
+}
+
+.btn {
+    background: var(--btn-background);
+    border: none;
+    box-shadow:
+        0.3em 0.3em 0.8em var(--box-shadow1),
+        -0.3em -0.3em 0.5em var(--box-shadow2)
+    ;
+    width: 4em;
+    height: 4em;
+    border: 0.2em var(--btn-border) solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--btn-background_hover);
+}
+
+.btn-main {
+    background: var(--btn-background-main);
+    width: 4.5em;
+    height: 4.5em;
+}
+
+.btn-main:hover {
+    background: var(--btn-background-main_hover);
+}
+
+.btn-main span {
+    color: var(--btn-main-span);
+}
+
+.controls .btn {
+    margin: 1em;
+}
+
+@media screen and (max-width: 700px) {
+    .range-slider {
+        width: 100%;
+    }
+
+}
